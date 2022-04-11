@@ -1,5 +1,5 @@
 body {
-  background-color: #245;
+  background-color: #fff;
   color: #333;
   margin: 33px; }
 
@@ -9,7 +9,7 @@ body, p, ol, ul, td {
   line-height: 18px; }
 
 pre {
-  background-color: #fff;
+  background-color: #eee;
   padding: 10px;
   font-size: 11px; }
 
@@ -34,7 +34,7 @@ div.actions {
   margin-bottom: 10px; }
 
 #notice {
-  color: wheat; }
+  color: green; }
 
 .field_with_errors {
   padding: 2px;
@@ -63,4 +63,3 @@ div.actions {
 
 label {
   display: block; }
-

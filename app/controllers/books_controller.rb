@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   # GET /books/1 or /books/1.json
@@ -22,9 +22,10 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
-
+    @book.user_id = current_user.id
     respond_to do |format|
       if @book.save
+        BookMailer.create_book_email(current_user).deliver_later
         format.html { redirect_to @book, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
       else
@@ -64,6 +65,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :name, :description, :publish_date)
+      params.require(:book).permit(:title, :name, :description, :publish_date, :user_id)
     end
 end

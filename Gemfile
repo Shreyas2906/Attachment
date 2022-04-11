@@ -56,4 +56,6 @@ gem 'carrierwave'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'activeadmin'
+gem 'activeadmin-ajax_filter'
+
 
